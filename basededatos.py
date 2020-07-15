@@ -7,28 +7,29 @@ db = client['TFG']
 usuario = db['DIRECCIONES']
 ##usuario.insert_one({"_id":"MAC","IPPrivada":"192.168.0.5","IPPublica":"1.1.1.1"})
 
+def insertIp(mac, ipPrivada, ipPublica):
+    usuario.insert_one({"_id":mac,"IPPrivada":ipPrivada,"IPPublica":ipPublica})
 
-#mostrar todos
-for document in usuario.find({}):
-    print(document)
+def listAllIps():
+    for document in usuario.find({}):
+        print(document)
 
-#mostar o buscado
-doc = usuario.find_one({
-    "IPPublica": "1.1.1.1"
-})
-print(doc)
-
-##update
-usuario.update_one({
-    "IPPublica":"1.1.1.1"
-    }, {
-    "$set":{
-        "IPPrivada":"This IP bitch"
-    }
+def findByPublicIp(ipPublica):
+    doc = usuario.find_one({
+        "IPPublica" : ipPublica
     })
+    print(doc)
 
-#mostar o buscado
-doc = usuario.find_one({
-    "IPPublica": "1.1.1.1"
-})
-print(doc)
+def updateIp(mac, ipPrivada, ipPublica):
+    usuario.update_one({
+        "_id":mac
+        }, {
+        "$set":{
+            "IPPrivada":ipPrivada, "IPPublica":ipPublica
+        }
+        })
+
+#insertIp("MACdonals", "BURGER", "king")
+listAllIps()
+updateIp("MACdonals", "Masto", "king")
+findByPublicIp("king")
