@@ -1,0 +1,9 @@
+[submodule "TFG_StaticServer"]
+	path = TFG_StaticServer
+	url = https://github.com/lsrigueira/TFG_StaticServer.git
+[submodule "TFG_dinamicServer"]
+	path = TFG_dinamicServer
+	url = https://github.com/lsrigueira/TFG_dinamicServer.git
+[submodule "TFG_MobileApp"]
+	path = TFG_MobileApp
+	url = https://github.com/lsrigueira/TFG_MobileApp.git
